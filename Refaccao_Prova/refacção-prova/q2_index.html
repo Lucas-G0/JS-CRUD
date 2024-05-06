@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Calculadora de Preços</title>
+
+    <style type="text/css">
+
+      body {
+        background-color: rgb(168, 222, 235);
+        color: lavender;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      main{
+        background-color: #fefefe;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50vw;
+        height: 60vh;
+        border-radius: 30px;
+        box-shadow: 11px 19px 20px rgb(83, 109, 117);
+        color: black;
+      }
+
+      h1,
+      p{
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        margin: 15px 0 15px;
+      }
+
+      .campo{
+        width: 100%;
+        text-align: center;
+        height: min-content;
+        margin: 25px 0 25px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+
+      #preco,
+      #pagamento,
+      option {
+        border: 1px solid black;
+        box-shadow: none;
+        background-color: white;
+        border-radius: 5px;
+        height: 20px;
+        width: 25vw;
+        text-align: center;
+      }
+
+      label{
+        width: 18vw;
+      }
+
+      button {
+        border: none;
+        background-color: rgb(78, 176, 241);
+        border-radius: 30px;
+        color: white;
+        width: 30vw;
+        height: 60px;
+        font-size: 40px;
+        margin: 25px 0 0 0;
+        cursor: pointer;
+      }
+
+      button:hover {
+        border: 1px solid blue;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <main>
+    <div class="titulo">
+        <h1>Calculadora de Preços</h1>
+    </div>
+
+    <div class="campo">
+        <label for="preco">Preço do Produto:</label>
+
+        <input type="number" id="preco" min="0" step="0.01" /><br /><br />
+
+    </div>
+
+    <div class="campo">
+        <label for="pagamento">Forma de Pagamento:</label>
+
+        <select id="pagamento">
+            <option value="debito">Débito (10% de Desconto)</option>
+            <option value="parcelado">Parcelado em 3x (5% de acréscimo)</option>
+        </select> <br /> <br />
+    </div>
+
+    <div class="button">
+        <button onclick="calcular()">Calcular</button><br /><br />
+    </div>
+
+    <div id="resultado"><p>Total: </p></div>
+
+    </main>
+
+    <script>
+
+      const preco = document.getElementById("preco");
+
+      const forma_pagamento = document.getElementById("pagamento");
+
+      const mostra_resultado = document.getElementById("resultado");
+
+
+      function calcular() {
+
+        var converted_value = parseFloat(preco.value);
+
+        var novoPreco = converted_value;
+
+        var Desconto = 0.1;
+
+        var Acrescimo = 0.05;
+
+        var Parcelas = 3;
+        
+        if (pagamento.value === "debito") {
+
+          novoPreco -= converted_value*Desconto;
+
+          const resultado = "R$: " + converted_value + ". Total com Desconto: R$: " + novoPreco;
+
+          mostraResultado(resultado);
+
+        } else if (pagamento.value === "parcelado") {
+          
+          novoPreco += converted_value*Acrescimo;
+
+          novoPreco /= Parcelas;
+
+          const resultado = "Compra de R$" + preco.value + " em 3 parcelas de: R$" + novoPreco;
+
+          mostraResultado(resultado);
+
+        }
+
+
+      }
+      function mostraResultado(value) {
+
+        resultado.innerHTML = "";
+
+        const Total = document.createElement("p");
+
+        const textTotal = document.createTextNode(value);
+
+        Total.appendChild(textTotal);
+
+        resultado.appendChild(Total);
+
+      }
+
+
+    </script>
+  </body>
+</html>

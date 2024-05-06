@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CINEMA DO CHOMA</title>
+
+    <style>
+
+      body {
+        background-color: black;
+        color: whitesmoke;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1,
+      p {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+
+      input,
+      select,
+      option {
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        border-radius: 1rem;
+        height: 20px;
+      }
+
+      option {
+        color: black;
+      }
+
+      button {
+        border: none;
+        background-color: orangered;
+        border-radius: 2rem;
+        color: white;
+        width: 150px;
+        height: 60px;
+        font-size: 30px;
+      }
+
+      button:hover {
+        border: 1px solid red;
+      }
+
+      input,
+      select {
+        background-color: orangered;
+        border: none;
+        box-shadow: none;
+        color: white;
+        font-size: 15px;
+        text-align: center;
+        width: 100px;
+      }
+
+      .Formulario {
+        display: flex;
+        justify-content: center;
+      }
+
+      .campo {
+        background-color: orangered;
+        padding: 5px;
+        border-radius: 15px;
+        justify-content: space-around;
+        display: flex;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <main>
+
+      <form class="Formulario" action="post">
+
+        <fieldset>
+
+            <div class="titulo">
+                <h1>Formulário do Cinema:</h1>
+            </div>
+
+            <div class="campo">
+            
+                <legend>Nome:</legend>
+              
+                <label for="name">
+                    <input type="text" name="name" id="id">
+                </label>
+    
+    
+            </div><br />
+    
+            <div class="campo">
+    
+                <legend>Telefone: </legend>
+    
+                <label for="telefone">
+                    <input type="tel" name="telefone" id="telefone">
+                </label>
+    
+            </div><br />
+    
+            <div class="campo">
+    
+                <legend>Filme: </legend>
+    
+                <label for="movie">
+                    <input type="text" name="movie" id="movie">
+                </label>
+    
+            </div><br />
+    
+            <div class="campo">
+                
+                <legend>Cadeira: </legend>
+
+                <label for="cadeira">
+                    <input type="text" name="cadeira" id="cadeira">
+                </label>
+              
+            </div><br />
+    
+            <div class="campo">
+    
+                <legend>Deseja Pipoca?</legend>
+                
+                <input type="radio" name="pipoca" id="pipoca" value="sim" checked>
+                <label for="pipoca_sim">Sim</label>
+    
+                <input type="radio" name="pipoca" id="pipoca" value="nao">
+                <label for="pipoca_nao">Não</label>
+    
+            </div><br />
+    
+            <div class="botao">
+                <button onclick="confirmar()">Confirmar</button>
+            </div>
+
+        </fieldset>
+
+      </form>
+
+    </main>
+
+  </body>
+
+  <script>
+
+    function confirmar() {
+
+      confirm("Clique OK para confirmar.\nClique Cancelar para editar.");
+    }
+
+  </script>
+
+</html>
