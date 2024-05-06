@@ -12,18 +12,28 @@
     <style>
 
       body {
-        background-color: black;
+        background-color: #fff;
         color: whitesmoke;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 17px;
+        display: flex;
         text-align: center;
         justify-content: center;
         align-items: center;
+        height: 95vh;
+      }
+
+      fieldset{
+        background-color: rgba(253, 232, 232, 0.815);
+        color: black;
+        box-shadow: 5px 10px 15px red;
+        border: 1px solid orangered;
       }
 
       h1,
       p {
         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        color: red;
       }
 
       input,
@@ -36,14 +46,16 @@
         height: 20px;
       }
 
-      option {
-        color: black;
+      legend,
+      label{
+        color: white;
       }
 
       button {
         border: none;
-        background-color: orangered;
+        background-color: rgb(252, 81, 19);
         border-radius: 2rem;
+        box-shadow: 2px 2px red;
         color: white;
         width: 150px;
         height: 60px;
@@ -51,18 +63,27 @@
       }
 
       button:hover {
-        border: 1px solid red;
+        background-color: red;
+        transition: all 1s;
+        cursor: pointer;  
       }
 
       input,
       select {
-        background-color: orangered;
+        background-color: rgb(252, 81, 19);
         border: none;
         box-shadow: none;
         color: white;
         font-size: 15px;
-        text-align: center;
-        width: 100px;
+        width: 60px;
+        margin: 0;
+      }
+
+      #name,
+      #telefone,
+      #movie,
+      #cadeira{
+        width: 340px;
       }
 
       .Formulario {
@@ -71,12 +92,15 @@
       }
 
       .campo {
-        background-color: orangered;
+        background-color: rgb(252, 81, 19);
         padding: 5px;
-        border-radius: 15px;
-        justify-content: space-around;
+        border-radius: 13px;
+        justify-content: space-between;
+        align-items: center;
         display: flex;
+        box-shadow: 2px 2px 1px red;
       }
+
     </style>
 
   </head>
@@ -98,7 +122,7 @@
                 <legend>Nome:</legend>
               
                 <label for="name">
-                    <input type="text" name="name" id="id">
+                    <input type="text" name="name" id="name">
                 </label>
     
     
@@ -138,11 +162,13 @@
     
                 <legend>Deseja Pipoca?</legend>
                 
+                <div class="input" style="display: flex; align-items: center;">
                 <input type="radio" name="pipoca" id="pipoca" value="sim" checked>
                 <label for="pipoca_sim">Sim</label>
     
                 <input type="radio" name="pipoca" id="pipoca" value="nao">
                 <label for="pipoca_nao">Não</label>
+                </div>
     
             </div><br />
     
@@ -159,10 +185,19 @@
   </body>
 
   <script>
+    const nome_op = document.getElementById(name);
+
+    const telefone_op = document.getElementById(telefone);
+
+    const cadeira_op = document.getElementById(cadeira);
+
+    const filme_op = document.getElementById(movie);
+
+    const pipoca_op = document.getElementById(pipoca);
 
     function confirmar() {
-
-      confirm("Clique OK para confirmar.\nClique Cancelar para editar.");
+      let frase = "Você informou: Clique OK para confirmar.\nClique Cancelar para editar.";
+      confirm(frase);
     }
 
   </script>
