@@ -204,12 +204,12 @@
   <script>
     function confirmar() {
       let nome_op = document.getElementById('name').value;
-      let telefone_op = document.getElementById('telefone');
-      let cadeira_op = document.getElementById('cadeira');
-      let filme_op = document.getElementById('movie');
-      let pipoca_op = document.getElementById('pipoca');
+      let telefone_op = document.getElementById('telefone').value;
+      let cadeira_op = document.getElementById('cadeira').value;
+      let filme_op = document.getElementById('movie').value;
+      let pipoca_op = document.getElementById('pipoca').value;
       let frase = "Nome: ";
-      confirm(nome_op);
+      confirm("Confirme os dados informados.\n\nNome: "+nome_op+"\nTelefone: "+telefone_op+"\nFilme: "+filme_op+"\nCadeira:"+cadeira_op+"\nPipoca: "+pipoca_op+"\n\nClique OK para confirmar ou Cancelar para editar");
     }
 
   </script>
