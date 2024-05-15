@@ -1,0 +1,84 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    color: black;
+    width: 100vw;
+    font-family: fantasy;
+    letter-spacing: 3px;
+}
+
+.container, table{
+    background-color: #fefefe;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 5px 5px 15px rgb(166, 242, 228);
+    width: 40vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 50px;
+    margin: 45px 15px;
+}
+
+table{
+    height: initial;
+}
+
+.inputs_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.inputs{
+    margin: 0 10px;
+    font-size: 15px;
+    width: 15vw;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #3f87a6;
+    text-align: center;
+    background-color: #f69d3c;
+}
+
+h1{
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.buttons_container{
+    width: 30vw;
+    height: initial;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons{
+    background-color: #3f87a6;
+    border: 1px solid black;
+    border-radius: 40px;
+    width: 13vw;
+    height: 3rem;
+}
+
+.buttons:hover{
+    background-color: #41abd9;
+    color: black;
+    transform: scale(1.1);
+    transition: 0.6s;
+    cursor: pointer;
+    font-size: large;
+}
+
