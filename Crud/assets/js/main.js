@@ -26,8 +26,8 @@ function read() {
    <td>${obj.item}</td>
    <td>R$ ${obj.value}</td>
    <td>
-    <button onclick="update(${indice})" class="table_buttons">Editar</button>
-    <button onclick="remove(${indice})" class="table_buttons">Excluir</button>
+    <button onclick="update(${indice})" class="buttons table_buttons">Editar</button>
+    <button onclick="remove(${indice})" class="buttons table_buttons">Excluir</button>
    </td>
    `;
   tabela.appendChild(tr);

@@ -5,9 +5,12 @@ body{
     align-items: center;
     margin: 0;
     padding: 0;
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: linear-gradient(#56b3db, #ffaa4f);
+    background-repeat: no-repeat;
+    background-size: contain;
     color: black;
     width: 100vw;
+    height: 100vh;
     font-family: fantasy;
     letter-spacing: 3px;
 }
@@ -16,7 +19,7 @@ body{
     background-color: #fefefe;
     border: 2px solid rgb(0, 0, 0);
     box-shadow: 5px 5px 15px rgb(166, 242, 228);
-    width: 40vw;
+    width: 45vw;
     height: 25vh;
     display: flex;
     flex-direction: column;
@@ -29,6 +32,21 @@ body{
 
 table{
     height: initial;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #f69d3c;
+    text-shadow: 2px 2px 2px black;
+    font-size: 30px;
+}
+
+tr, thead{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 40vw;
+    margin: 10px 0;
+    text-align: start;
+    align-items: center;
 }
 
 .inputs_container{
@@ -45,15 +63,17 @@ table{
     width: 15vw;
     height: 30px;
     border-radius: 10px;
-    border: 1px solid #3f87a6;
+    border: 1px solid #f69d3c;
     text-align: center;
-    background-color: #f69d3c;
+    background-color: #eeeeee;
 }
 
-h1{
+#titulo{
     margin: 0;
     font-size: 3rem;
     font-weight: bold;
+    color: #f69d3c;
+    text-shadow: 8px 5px 2px black;
 }
 
 .buttons_container{
@@ -67,18 +87,45 @@ h1{
 
 .buttons{
     background-color: #3f87a6;
-    border: 1px solid black;
+    border: 1px solid #2f667d;
     border-radius: 40px;
+    box-shadow: 2px 2px 5px #4ea8cf;
+    font-size: 25px;
     width: 13vw;
     height: 3rem;
+    color: white;
 }
 
 .buttons:hover{
     background-color: #41abd9;
-    color: black;
     transform: scale(1.1);
     transition: 0.6s;
     cursor: pointer;
     font-size: large;
 }
 
+.table_buttons{
+    width: 6vw;
+    font-size: 15px;
+    align-items: center;
+}
+
+td{
+    color: black;
+    letter-spacing: normal;
+    font-size: 20px;
+    text-align: start;
+    height: min-content;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+th{
+    text-align: start;
+}
+
+tbody{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
