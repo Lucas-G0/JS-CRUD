@@ -1,4 +1,44 @@
 .title{
-    margin: 5rem
-    
+    margin: 6rem;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    margin: 0 15px;
+}
+
+.subtitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+.carousel-control-next{
+    justify-content: end;
+    padding: 2rem;
+}
+
+.carousel-control-prev{
+    justify-content: start;
+    padding: 2rem;
+}
+
+.card-body{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.btn-primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
