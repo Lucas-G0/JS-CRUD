@@ -1,5 +1,4 @@
-.catalogo{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin: 5rem;
+.title{
+    margin: 5rem
+    
 }
