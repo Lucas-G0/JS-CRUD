@@ -42,3 +42,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.itens{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0 3rem 3rem 3rem;
+    gap: 1.5rem;
+}
+
+.item{
+    width: min-content;
+}
+
+#catalogo_completo{
+    justify-content: center;
+    align-items: center;
+}
+
+#catalogo_completo .card{
+    margin: 0;
+}

@@ -36,12 +36,12 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item" style="margin: 10px">
-                <a class="nav-link active" aria-current="page" href="#"
+                <a class="nav-link active" aria-current="page" href="#" onclick="window.location.reload(true)"
                   >Início</a
                 >
               </li>
               <li class="nav-item" style="margin: 10px">
-                <a class="nav-link" href="catalogo.html">Catálogo</a>
+                <a class="nav-link" href="#" id="catalogo">Catálogo</a>
               </li>
               <li class="nav-item" style="margin: 10px">
                 <a class="nav-link" href="edit.html">Painel Administrativo</a>
@@ -75,7 +75,7 @@
 
     <main>
       <div class="catalogo-title">
-        <h1 class="title">Produtos Populares</h1>
+        <h1 class="title" id="catalog-title">Produtos Populares</h1>
       </div>
       <div id="carouselExample" class="carousel slide" data-bs-theme="dark">
         <div class="carousel-inner">
@@ -217,12 +217,78 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+
+      <div id="catalogo_completo" style="display: none;">
+        <ul class="itens">
+          <li class="item">
+            <div class="card" style="width: 20rem" height: 15rem;>
+              <div class="card-body">
+                <h5 class="card-title">teste1</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="card" style="width: 20rem" height: 15rem;>
+              <div class="card-body">
+                <h5 class="card-title">teste1</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="card" style="width: 20rem" height: 15rem;>
+              <div class="card-body">
+                <h5 class="card-title">teste1</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="card" style="width: 20rem" height: 15rem;>
+              <div class="card-body">
+                <h5 class="card-title">teste1</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="card" style="width: 20rem" height: 15rem;>
+              <div class="card-body">
+                <h5 class="card-title">teste1</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
     </main>
 
 <footer>
   <div class="subtitle">
     <h6 class="subtitle">
-      <a href="catalogo.html">Ver mais</a>
+      <a href="#" id="ver_catalogo">Ver mais</a>
     </h6>
   </div>
 </footer>
@@ -231,5 +297,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
