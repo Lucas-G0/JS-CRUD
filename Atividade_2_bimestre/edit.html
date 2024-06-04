@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/edit.css" />
   </head>
   <body>
-    <div id="login" style="display: flex;">
+    <div id="login" style="display: none">
       <form>
         <div class="mb-3">
           <label for="inputLogin" class="form-label">Login</label>
@@ -49,71 +49,99 @@
         </div>
       </form>
     </div>
-    <main id="main" style="display: none;">
-        <div id="catalogo_completo">
-        <ul class="itens">
-          <li class="item">
-            <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <h5 class="card-title">teste1</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+    <main id="main" style="display: flex">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#addModal"
+      >
+        Adicionar Produto
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="addModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Adicionar Produto
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="inputs">
+                <div class="inputs1">
+                  <div class="mb-3" id="product_name">
+                    <label for="product_name" class="form-label">Nome:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="product_name"
+                      id="name"
+                      aria-describedby="helpId"
+                      placeholder="Nome do Produto"
+                    />
+                  </div>
+                  <div class="mb-3" id="product_price">
+                    <label for="product_price" class="form-label">Valor:</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="product_value"
+                      id="value"
+                      aria-describedby="helpId"
+                      placeholder="Valor do Produto"
+                    />
+                </div>
+                </div>
+                <div class="mb-3" id="product_desc">
+                  <label for="product_name" class="form-label">Descrição:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="product_desc"
+                    id="desc"
+                    aria-describedby="helpId"
+                    placeholder="Descrição do Produto"
+                  />
+                </div>
+                
               </div>
             </div>
-          </li>
-          <li class="item">
-            <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <h5 class="card-title">teste1</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" onclick="create()" data-bs-dismiss="modal">
+                Salvar
+              </button>
             </div>
-          </li>
-          <li class="item">
-            <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <h5 class="card-title">teste1</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <h5 class="card-title">teste1</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <h5 class="card-title">teste1</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </li>
+          </div>
+        </div>
+      </div>
+
+      <div id="catalogo_completo">
+        <ul class="itens" id="catalog-list">
         </ul>
       </div>
+      <p id="valor-total"></p>
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -121,5 +149,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/login.js"></script>
+    <script src="assets/js/edit.js"></script>
   </body>
 </html>

@@ -22,3 +22,17 @@ body{
     display: flex;
     justify-content: center;
 }
+
+.inputs1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mb-3{
+    margin: 1rem;
+}
+
+input#desc{
+    height: 15vh;
+}
