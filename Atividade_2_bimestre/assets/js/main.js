@@ -1,3 +1,4 @@
+let clientCart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let catalogoCliente = JSON.parse(localStorage.getItem("catalogo"));
 const vermais = document.getElementById('ver_catalogo');
@@ -18,6 +19,12 @@ vercatalogo.addEventListener('click', function mostraCatalogo(){
     document.getElementById('catalogo_completo').style.display='flex';    
 });
 
+function add_cart(indice){
+  let obj = catalogo[indice];
+  clientCart.push(obj);
+  console.log(clientCart);
+}
+
 function atualizarTabelaCliente() {
     let catalogBody = document.getElementById("catalog-main");
     catalogBody.innerHTML = "";
@@ -32,7 +39,7 @@ function atualizarTabelaCliente() {
                   <p class="card-text">
                     ${item.desc}
                   </p>
-                  <button>Buy</button>
+                  <button class="btn btn-primary" onclick="add_cart(${indice})">Buy</button>
                 </div>
           </div>
           `;
@@ -64,7 +71,7 @@ function atualizarTabelaCliente() {
                     <p class="card-text">
                       ${item.desc}
                     </p>
-                    <button>Buy</button>
+                    <button class="btn btn-primary" onclick="add_cart(${indice})">Buy</button>
                   </div>
             </div>
             `;

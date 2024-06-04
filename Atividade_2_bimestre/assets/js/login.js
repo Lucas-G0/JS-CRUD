@@ -17,5 +17,6 @@ function validate(){
 
 function ocultaLogin(){
     login.style.display='none';
-    main.style.display= 'flex';
+    main.style.display= 'block';
+    header_login.style.display='block';
 }
