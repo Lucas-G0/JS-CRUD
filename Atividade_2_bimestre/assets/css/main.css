@@ -68,3 +68,7 @@
 .carousel-item{
     list-style-type: none;
 }
+
+#cart_link{
+    text-decoration: none;
+}

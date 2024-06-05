@@ -27,6 +27,7 @@ function create() {
     let item = document.getElementById("name").value;
     let valor = parseFloat(document.getElementById("value").value);
     let desc = document.getElementById("desc").value;
+    let quant=1;
 
     let indiceEdicao = -1;
     let objExistente = catalogo.find((objExistente, index) => {
@@ -40,7 +41,7 @@ function create() {
     if (indiceEdicao >= 0) {
       catalogo[indiceEdicao] = { item, valor, desc };
     } else {
-      catalogo.push({ item, valor, desc });
+      catalogo.push({ item, valor, desc, quant });
     }
 
     salvarLista();
