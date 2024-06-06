@@ -1,8 +1,10 @@
 // scripts.js
 let catalogo = JSON.parse(localStorage.getItem("catalogo")) || [];
+let imagem_data = JSON.parse(localStorage.getItem('imagem_data')) || [];
 
 function salvarLista() {
   localStorage.setItem("catalogo", JSON.stringify(catalogo));
+  localStorage.setItem('imgData', JSON.stringify(imagem_data));
 }
 
 function limparForm() {
@@ -22,26 +24,59 @@ function validaForm() {
   }
 }
 
+function getImageDataURL(url, success) {
+	var data, canvas, ctx;
+	var img = new Image();
+	img.onload = function(){
+		// Create the canvas element.
+	    canvas = document.createElement('canvas');
+	    canvas.width = img.width;
+	    canvas.height = img.height;
+		// Get '2d' context and draw the image.
+		ctx = canvas.getContext("2d");
+	    ctx.drawImage(img, 0, 0);
+		// Get canvas data URL
+		try{
+			data = {image: img, data: canvas.toDataURL()};
+      success.data = data.data;
+      success.image = data.image;
+		}catch(e){
+			
+		}
+	}
+	// Load image URL.
+	try{
+		img.src = url;
+	}catch(e){
+		
+	}
+}
+
 function create() {
   if (validaForm()) {
     let item = document.getElementById("name").value;
     let valor = parseFloat(document.getElementById("value").value);
     let desc = document.getElementById("desc").value;
-    let quant=1;
+    let img = document.getElementById("image").files;
+    let imgURL = URL.createObjectURL(img[0]);
+    let imgData={imagem: '', data:''};
+    
+    getImageDataURL(imgURL, imgData); 
+
+    console.log(imgData);
 
     let indiceEdicao = -1;
-    let objExistente = catalogo.find((objExistente, index) => {
-      if (objExistente.item === item) {
+    let objExistente = catalogo.find((element, index) => {
+      if (element.index === index) {
         indiceEdicao = index;
         return true;
-      }
-      return false;
+      } else return false;
     });
 
     if (indiceEdicao >= 0) {
-      catalogo[indiceEdicao] = { item, valor, desc };
+      catalogo[indiceEdicao] = { item, valor, desc, imgData};
     } else {
-      catalogo.push({ item, valor, desc, quant });
+      catalogo.push({ item, valor, desc, imgData });
     }
 
     salvarLista();
@@ -55,6 +90,7 @@ function editarItem(indice) {
   document.getElementById("name").value = obj.item;
   document.getElementById("value").value = obj.valor;
   document.getElementById("desc").value = obj.desc;
+  obj.index = indice;
 }
 
 function excluirItem(indice) {
@@ -77,7 +113,8 @@ function atualizarTabela() {
         <div class="card" style="width: 20rem" height: 15rem;>
               <div class="card-body">
                 <h5 class="card-title">${item.item}</h5>
-                <h6>${item.valor.toFixed(2)}</h6>
+                <img src="">
+                <h6>Price: R$${item.valor.toFixed(2)}</h6>
                 <p class="card-text">
                   ${item.desc}
                 </p>
@@ -88,17 +125,7 @@ function atualizarTabela() {
         `;
     listBody.appendChild(li);
   });
-
-  atualizarValorTotal();
-}
-
-function atualizarValorTotal() {
-  let valorTotal = catalogo.reduce((total, item) => total + item.valor, 0);
-  document.getElementById(
-    "valor-total"
-  ).textContent = `Valor Total: R$ ${valorTotal.toFixed(2)}`;
 }
 
 // Inicialização da tabela
 atualizarTabela();
-console.log(catalogo);

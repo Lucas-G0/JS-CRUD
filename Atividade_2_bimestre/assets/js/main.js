@@ -25,7 +25,6 @@ function add_cart(indice) {
   alert(frase);
   clientCart.push(catalogoCliente[indice]);
   console.log(clientCart);
-  atualizarValorTotal();
   saveCart();
 }
 
@@ -43,7 +42,8 @@ function atualizarTabelaCliente() {
           <div class="card" style="width: 20rem" height: 15rem;>
                 <div class="card-body">
                   <h5 class="card-title">${item.item}</h5>
-                  <h6>${item.valor.toFixed(2)}</h6>
+                  <img src="data:image/png;base64," + item.imgData>
+                  <h6>Price: R$${item.valor.toFixed(2)}</h6>
                   <p class="card-text">
                     ${item.desc}
                   </p>
@@ -53,16 +53,6 @@ function atualizarTabelaCliente() {
           `;
     catalogBody.appendChild(li);
   });
-}
-
-function atualizarValorTotal() {
-  let valorTotal = clientCart.reduce(
-    (total, item) => total + item.valor,
-    0
-  );
-  document.getElementById(
-    "valor-total"
-  ).textContent = `Valor Total: R$ ${valorTotal.toFixed(2)}`;
 }
 
 function atualizarTabelaPopulares() {
@@ -76,7 +66,8 @@ function atualizarTabelaPopulares() {
             <div class="card" style="width: 20rem" height: 15rem;>
                   <div class="card-body">
                     <h5 class="card-title">${item.item}</h5>
-                    <h6>${item.valor.toFixed(2)}</h6>
+                    <img src="${item.imgData}">
+                    <h6>Price: R$${item.valor.toFixed(2)}</h6>
                     <p class="card-text">
                       ${item.desc}
                     </p>

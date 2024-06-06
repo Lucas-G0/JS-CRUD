@@ -11,6 +11,10 @@
     margin: 0 15px;
 }
 
+.card-body{
+    text-align: center;
+}
+
 .subtitle{
     display: flex;
     justify-content: center;
