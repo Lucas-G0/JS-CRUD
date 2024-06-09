@@ -14,12 +14,18 @@ function atualizaCart(){
     li.innerHTML = `
         <div class="card" style="width: 20rem" height: 15rem;>
               <div class="card-body">
-                <h5 class="card-title">${item.item}</h5>
-                <h6>${item.valor.toFixed(2)}</h6>
+                <div class="card-title">
+                    <h5 class="card-title">${item.item}</h5>
+                    <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
+                    </div>
+                    <img class="card-image" src="${item.img}">
+                </div>
                 <p class="card-text">
                   ${item.desc}
                 </p>
+                <div class="btn-container">
                 <button onclick="excluirItem(${indice})" class="btn btn-secondary">Excluir</button>
+                </div>
               </div>
         </div>
         `;

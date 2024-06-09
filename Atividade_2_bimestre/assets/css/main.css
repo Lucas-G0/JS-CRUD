@@ -32,8 +32,8 @@
 }
 
 .card-body{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -75,4 +75,23 @@
 
 #cart_link{
     text-decoration: none;
+}
+
+.card-image{
+    width: auto;
+    height: 15vh;
+    margin: 1.2rem 0;
+}
+
+.card-title{
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    text-align: center;
+    margin: 0;
+}
+
+.card-text{
+    margin: 0 0 1.5rem 1.5rem;
+    width: max-content;
 }

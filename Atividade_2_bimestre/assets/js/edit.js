@@ -1,16 +1,16 @@
 // scripts.js
 let catalogo = JSON.parse(localStorage.getItem("catalogo")) || [];
-let imagem_data = JSON.parse(localStorage.getItem('imagem_data')) || [];
+
 
 function salvarLista() {
   localStorage.setItem("catalogo", JSON.stringify(catalogo));
-  localStorage.setItem('imgData', JSON.stringify(imagem_data));
 }
 
 function limparForm() {
   document.getElementById("name").value = "";
   document.getElementById("value").value = "";
   document.getElementById("desc").value = "";
+  document.getElementById("image").files[0] = '';
 }
 
 function validaForm() {
@@ -24,46 +24,22 @@ function validaForm() {
   }
 }
 
-function getImageDataURL(url, success) {
-	var data, canvas, ctx;
-	var img = new Image();
-	img.onload = function(){
-		// Create the canvas element.
-	    canvas = document.createElement('canvas');
-	    canvas.width = img.width;
-	    canvas.height = img.height;
-		// Get '2d' context and draw the image.
-		ctx = canvas.getContext("2d");
-	    ctx.drawImage(img, 0, 0);
-		// Get canvas data URL
-		try{
-			data = {image: img, data: canvas.toDataURL()};
-      success.data = data.data;
-      success.image = data.image;
-		}catch(e){
-			
-		}
-	}
-	// Load image URL.
-	try{
-		img.src = url;
-	}catch(e){
-		
-	}
-}
+document.getElementById("image").addEventListener('change', function readImage(){
+  const reader = new FileReader();
+  reader.addEventListener('load', function(){
+      localStorage.setItem('recent-image', reader.result);
+  });
+
+  reader.readAsDataURL(this.files[0]);
+});
 
 function create() {
   if (validaForm()) {
     let item = document.getElementById("name").value;
     let valor = parseFloat(document.getElementById("value").value);
     let desc = document.getElementById("desc").value;
-    let img = document.getElementById("image").files;
-    let imgURL = URL.createObjectURL(img[0]);
-    let imgData={imagem: '', data:''};
-    
-    getImageDataURL(imgURL, imgData); 
+    let img = localStorage.getItem("recent-image");
 
-    console.log(imgData);
 
     let indiceEdicao = -1;
     let objExistente = catalogo.find((element, index) => {
@@ -74,9 +50,10 @@ function create() {
     });
 
     if (indiceEdicao >= 0) {
-      catalogo[indiceEdicao] = { item, valor, desc, imgData};
+      img = localStorage.getItem("recent-image") || [];
+      catalogo[indiceEdicao] = { item, valor, desc, img};
     } else {
-      catalogo.push({ item, valor, desc, imgData });
+      catalogo.push({ item, valor, desc, img});
     }
 
     salvarLista();
@@ -90,6 +67,7 @@ function editarItem(indice) {
   document.getElementById("name").value = obj.item;
   document.getElementById("value").value = obj.valor;
   document.getElementById("desc").value = obj.desc;
+  document.getElementById("image").files[0] = obj.img;
   obj.index = indice;
 }
 
@@ -112,14 +90,19 @@ function atualizarTabela() {
     li.innerHTML = `
         <div class="card" style="width: 20rem" height: 15rem;>
               <div class="card-body">
-                <h5 class="card-title">${item.item}</h5>
-                <img src="">
-                <h6>Price: R$${item.valor.toFixed(2)}</h6>
+                <div class="card-title">
+                    <h5 class="card-title">${item.item}</h5>
+                    <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
+                    </div>
+                    <img class="card-image" src="${item.img}">
+                </div>
                 <p class="card-text">
                   ${item.desc}
                 </p>
+                <div class="btn-container">
                 <button onclick="editarItem(${indice})" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addModal">Editar</button>
                 <button onclick="excluirItem(${indice})" class="btn btn-secondary">Excluir</button>
+                </div>
               </div>
         </div>
         `;

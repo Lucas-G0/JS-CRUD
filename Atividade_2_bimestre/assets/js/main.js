@@ -42,7 +42,7 @@ function atualizarTabelaCliente() {
           <div class="card" style="width: 20rem" height: 15rem;>
                 <div class="card-body">
                   <h5 class="card-title">${item.item}</h5>
-                  <img src="data:image/png;base64," + item.imgData>
+                  <img class="card-image" src="${item.img}">
                   <h6>Price: R$${item.valor.toFixed(2)}</h6>
                   <p class="card-text">
                     ${item.desc}
@@ -65,9 +65,11 @@ function atualizarTabelaPopulares() {
     li.innerHTML = `
             <div class="card" style="width: 20rem" height: 15rem;>
                   <div class="card-body">
+                    <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
-                    <img src="${item.imgData}">
-                    <h6>Price: R$${item.valor.toFixed(2)}</h6>
+                    <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
+                    </div>
+                    <img class="card-image" src="${item.img}">
                     <p class="card-text">
                       ${item.desc}
                     </p>
