@@ -41,7 +41,7 @@ function atualizarTabelaCliente() {
   catalogoCliente.forEach((item, indice) => {
     let li = document.createElement("li");
     li.innerHTML = `
-          <div class="card" style="width: 20rem; height: 100%">
+          <div class="card" style="width: 20rem; height: 100%; max-height: 25rem;">
                   <div class="card-body">
                     <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
@@ -70,7 +70,7 @@ function atualizarTabelaPopulares() {
     let li = document.createElement("li");
     li.setAttribute("class", "element");
     li.innerHTML = `
-            <div class="card" style="width: 20rem; height: 100%">
+            <div class="card" style="width: 20rem; height: 100%; max-height: 25rem;">
                   <div class="card-body">
                     <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
