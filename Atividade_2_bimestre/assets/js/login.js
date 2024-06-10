@@ -10,7 +10,7 @@ function validate(){
     if(Email.value===sucess_email && parseInt(Password.value)===sucess_password)
         ocultaLogin();
     else
-        alert("tente novamente");
+        document.getElementById("wrong_alert").innerHTML="Usuário ou senha incorretos!";
         Email.value='';
         Password.value='';
 }

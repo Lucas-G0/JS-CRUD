@@ -18,14 +18,16 @@ vercatalogo.addEventListener("click", function mostraCatalogo() {
   document.getElementById("catalogo_completo").style.display = "flex";
 });
 
-function add_cart(indice) {
+function add_cart(indice, e) {
   let frase = `
   ${catalogoCliente[indice].item} foi adicionado ao carrinho!
   `
-  alert(frase);
-  clientCart.push(catalogoCliente[indice]);
-  console.log(clientCart);
-  saveCart();
+  if (e.innerHTML!=frase){
+    e.innerHTML=frase;
+    clientCart.push(catalogoCliente[indice]);
+    saveCart();}
+  else {e.innerHTML="Comprar"};
+  
 }
 
 function saveCart() {
@@ -39,15 +41,17 @@ function atualizarTabelaCliente() {
   catalogoCliente.forEach((item, indice) => {
     let li = document.createElement("li");
     li.innerHTML = `
-          <div class="card" style="width: 20rem" height: 15rem;>
+          <div class="card" style="width: 20rem; height:100%">
                 <div class="card-body">
                   <h5 class="card-title">${item.item}</h5>
+                  <div class="img-container">
                   <img class="card-image" src="${item.img}">
+                  </div>
                   <h6>Price: R$${item.valor.toFixed(2)}</h6>
                   <p class="card-text">
                     ${item.desc}
                   </p>
-                  <button type="button" class="btn btn-primary" onclick="add_cart(${indice})">Buy</button>
+                  <button type="button" class="btn btn-primary" onclick="add_cart(${indice}, this)">Buy</button>
                 </div>
           </div>
           `;
@@ -62,18 +66,21 @@ function atualizarTabelaPopulares() {
 
   catalogoCliente.forEach((item, indice) => {
     let li = document.createElement("li");
+    li.setAttribute("class", "element");
     li.innerHTML = `
-            <div class="card" style="width: 20rem" height: 15rem;>
+            <div class="card" style="width: 20rem; height: 100%">
                   <div class="card-body">
                     <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
+                    <div class="img-container">
                     <img class="card-image" src="${item.img}">
+                    </div>
                     <p class="card-text">
                       ${item.desc}
                     </p>
-                    <button class="btn btn-primary" onclick="add_cart(${indice})">Buy</button>
+                    <button class="btn btn-primary" onclick="add_cart(${indice}, this)">Comprar</button>
                   </div>
             </div>
             `;

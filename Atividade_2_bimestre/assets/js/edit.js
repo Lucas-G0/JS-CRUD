@@ -87,8 +87,9 @@ function atualizarTabela() {
 
   catalogo.forEach((item, indice) => {
     let li = document.createElement("li");
+    li.setAttribute("class", "element");
     li.innerHTML = `
-        <div class="card" style="width: 20rem" height: 15rem;>
+        <div class="card" style="width: 19rem" height: 15rem;>
               <div class="card-body">
                 <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
@@ -100,8 +101,8 @@ function atualizarTabela() {
                   ${item.desc}
                 </p>
                 <div class="btn-container">
-                <button onclick="editarItem(${indice})" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addModal">Editar</button>
-                <button onclick="excluirItem(${indice})" class="btn btn-secondary">Excluir</button>
+                <button onclick="editarItem(${indice})" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addModal" id="edit_btn">Editar</button>
+                <button onclick="excluirItem(${indice})" class="btn btn-secondary" id="rmv_btn">Excluir</button>
                 </div>
               </div>
         </div>
