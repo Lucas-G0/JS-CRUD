@@ -41,14 +41,14 @@ function atualizarTabelaCliente() {
   catalogoCliente.forEach((item, indice) => {
     let li = document.createElement("li");
     li.innerHTML = `
-          <div class="card" style="width: 20rem; height: 100%; max-height: 25rem;">
+          <div class="card" style="width: 20rem; height: 100%">
                   <div class="card-body">
                     <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
                     <div class="img-container">
-                    <img class="card-image" src="${item.img}" style="max-width: 15rem">
+                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 25rem;">
                     </div>
                     <p class="card-text">
                       ${item.desc}
@@ -77,7 +77,7 @@ function atualizarTabelaPopulares() {
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
                     <div class="img-container">
-                    <img class="card-image" src="${item.img}" style="max-width: 15rem">
+                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 25rem;">
                     </div>
                     <p class="card-text">
                       ${item.desc}
