@@ -48,7 +48,7 @@ function atualizarTabelaCliente() {
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
                     <div class="img-container">
-                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 25rem;">
+                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 19rem;">
                     </div>
                     <p class="card-text">
                       ${item.desc}
@@ -77,7 +77,7 @@ function atualizarTabelaPopulares() {
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
                     <div class="img-container">
-                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 25rem;">
+                    <img class="card-image" src="${item.img}" style="max-width: 15rem; max-height: 19rem;">
                     </div>
                     <p class="card-text">
                       ${item.desc}
