@@ -12,8 +12,10 @@
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary"
         data-bs-theme="dark"
+        id="navbar-main"
       >
         <div class="container-fluid">
+          <img src="../assets/images/market-shop-shopping-ecommerce-cart-buy-online-svgrepo-com.svg" alt="logo" style="width: 2.7rem; height: 2.5rem;">
           <a class="navbar-brand" href="../index.html" style="margin: 15px"
             >Mercadinho Digital</a
           >
@@ -45,6 +47,7 @@
                 <a class="nav-link" href="edit.html">Painel Administrativo</a>
               </li>
             </ul>
+            <span id="valor-total"></span>
             <span class="navbar-text">
               <nav class="navbar bg-body-tertiary">
                 <form class="container-fluid justify-content-start">
@@ -53,6 +56,7 @@
                     type="button"
                     style="display: flex; align-items: center"
                     onclick="window.location.reload(true)"
+                    id="confirm-buy"
                   >
                     Finalizar Compra
                   </button>
@@ -66,7 +70,6 @@
     </header>
     <main>
       <div id="carrinho_completo">
-        <p id="valor-total"></p>
         <ul class="itens" id="catalog-list"></ul>
       </div>
     </main>

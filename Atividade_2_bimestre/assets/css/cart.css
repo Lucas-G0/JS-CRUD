@@ -36,3 +36,18 @@
     align-items: center;
     margin: 1rem 0;
 }
+
+#navbar-main{
+    padding: 0;
+}
+
+#confirm-buy{
+    width: 9rem;
+    margin: 0;
+    text-align: center;
+}
+
+#valor-total{
+    color: white;
+    margin-right: 2rem;
+}
