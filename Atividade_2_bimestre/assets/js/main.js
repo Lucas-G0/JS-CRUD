@@ -41,19 +41,21 @@ function atualizarTabelaCliente() {
   catalogoCliente.forEach((item, indice) => {
     let li = document.createElement("li");
     li.innerHTML = `
-          <div class="card" style="width: 20rem; height:100%">
-                <div class="card-body">
-                  <h5 class="card-title">${item.item}</h5>
-                  <div class="img-container">
-                  <img class="card-image" src="${item.img}">
+          <div class="card" style="width: 20rem; height: 100%">
+                  <div class="card-body">
+                    <div class="card-title">
+                    <h5 class="card-title">${item.item}</h5>
+                    <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
+                    </div>
+                    <div class="img-container">
+                    <img class="card-image" src="${item.img}">
+                    </div>
+                    <p class="card-text">
+                      ${item.desc}
+                    </p>
+                    <button class="btn btn-primary" onclick="add_cart(${indice}, this)">Comprar</button>
                   </div>
-                  <h6>Price: R$${item.valor.toFixed(2)}</h6>
-                  <p class="card-text">
-                    ${item.desc}
-                  </p>
-                  <button type="button" class="btn btn-primary" onclick="add_cart(${indice}, this)">Buy</button>
-                </div>
-          </div>
+            </div>
           `;
     catalogBody.appendChild(li);
   });

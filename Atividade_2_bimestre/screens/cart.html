@@ -55,8 +55,9 @@
                     class="btn btn-outline-success me-2"
                     type="button"
                     style="display: flex; align-items: center"
-                    onclick="window.location.reload(true)"
                     id="confirm-buy"
+                    data-bs-target="#final-infoModal"
+                    data-bs-toggle="modal"
                   >
                     Finalizar Compra
                   </button>
@@ -73,6 +74,74 @@
         <ul class="itens" id="catalog-list"></ul>
       </div>
     </main>
+
+<!-- Modal -->
+    <form action="../index.html" id="payment">
+      <div class="modal fade" id="final-infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="final-infoModalLabel">Checkout</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+              <div class="mb-3">
+                <label for="name" class="form-label">Nome Completo</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="form-control"
+                  placeholder=""
+                  required
+                />
+              </div>
+      
+              <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input
+                  type="text"
+                  name="cpf"
+                  id="cpf"
+                  class="form-control"
+                  placeholder=""
+                  required
+                />
+              </div>
+      
+              <div class="mb-3">
+                <label for="adress" class="form-label">Endereço</label>
+                <input
+                  type="text"
+                  name="adress"
+                  id="addres"
+                  class="form-control"
+                  placeholder=""
+                  required
+                />
+              </div>
+      
+              <div class="mb-3" id="payMethod">
+                <label for="payMethod" class="form-label">Forma de Pagamento: </label>
+                <select name="payMethod" id="payMethod">
+                  <option value="pix">Pix</option>
+                  <option value="credit">Crédito</option>
+                  <option value="debit">Débito</option>
+                  <option value="bankBill">Boleto</option>
+                </select>
+              </div>
+              
+      
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" onclick="final_checkout()" class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
     <script src="../assets/js/cart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

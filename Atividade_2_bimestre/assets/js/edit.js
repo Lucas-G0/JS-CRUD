@@ -1,5 +1,6 @@
 // scripts.js
 let catalogo = JSON.parse(localStorage.getItem("catalogo")) || [];
+let img;
 
 
 function salvarLista() {
@@ -27,7 +28,7 @@ function validaForm() {
 document.getElementById("image").addEventListener('change', function readImage(){
   const reader = new FileReader();
   reader.addEventListener('load', function(){
-      localStorage.setItem('recent-image', reader.result);
+      img=reader.result;
   });
 
   reader.readAsDataURL(this.files[0]);
@@ -38,8 +39,6 @@ function create() {
     let item = document.getElementById("name").value;
     let valor = parseFloat(document.getElementById("value").value);
     let desc = document.getElementById("desc").value;
-    let img = localStorage.getItem("recent-image");
-
 
     let indiceEdicao = -1;
     let objExistente = catalogo.find((element, index) => {
@@ -50,7 +49,6 @@ function create() {
     });
 
     if (indiceEdicao >= 0) {
-      img = localStorage.getItem("recent-image") || [];
       catalogo[indiceEdicao] = { item, valor, desc, img};
     } else {
       catalogo.push({ item, valor, desc, img});
@@ -67,7 +65,7 @@ function editarItem(indice) {
   document.getElementById("name").value = obj.item;
   document.getElementById("value").value = obj.valor;
   document.getElementById("desc").value = obj.desc;
-  document.getElementById("image").files[0] = obj.img;
+  img = obj.img;
   obj.index = indice;
 }
 

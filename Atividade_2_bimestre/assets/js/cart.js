@@ -12,22 +12,23 @@ function atualizaCart(){
   clientCart.forEach((item, indice) => {
     let li = document.createElement("li");
     li.innerHTML = `
-        <div class="card" style="width: 20rem" height: 15rem;>
-              <div class="card-body">
-                <div class="card-title">
+        <div class="card" style="width: 20rem; height: 100%">
+                  <div class="card-body">
+                    <div class="card-title">
                     <h5 class="card-title">${item.item}</h5>
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
+                    <div class="img-container">
                     <img class="card-image" src="${item.img}">
-                </div>
-                <p class="card-text">
-                  ${item.desc}
-                </p>
-                <div class="btn-container">
-                <button onclick="excluirItem(${indice})" class="btn btn-secondary">Excluir</button>
-                </div>
-              </div>
-        </div>
+                    </div>
+                    <p class="card-text">
+                      ${item.desc}
+                    </p>
+                    <div class="btn-container">
+                    <button class="btn btn-secondary" id="rmv_btn" onclick="excluirItem(${indice})">Excluir</button>
+                    </div>
+                  </div>
+            </div>
         `;
     listBody.appendChild(li);
 });
@@ -51,5 +52,12 @@ function atualizarValorTotal() {
       "valor-total"
     ).textContent = `Valor Total: R$ ${valorTotal.toFixed(2)}`;
   }
+
+function final_checkout(){
+  localStorage.removeItem('clientCart');
+  let frase = `Compra #${Math.floor(Math.random()*1000)} finalizada!`;
+  alert(frase);
+}
+
 
 atualizaCart();
