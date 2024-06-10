@@ -77,7 +77,7 @@ function atualizarTabelaPopulares() {
                     <h6 class="card-title">R$${item.valor.toFixed(2)}</h6>
                     </div>
                     <div class="img-container">
-                    <img class="card-image" src="${item.img}">
+                    <img class="card-image" src="${item.img}" style="width: 20rem">
                     </div>
                     <p class="card-text">
                       ${item.desc}
