@@ -1,13 +1,7 @@
 # FrontEnd2024
-Aula de Front End
+JS CRUD with Local Storage
 
-![mac](https://img.shields.io/badge/McDonald's-FBC817?style=for-the-badge&logo=McDonald's&logoColor=white)
-
-![riot](https://img.shields.io/badge/Riot_Games-D32936?style=for-the-badge&logo=riot-games&logoColor=white)
-
-[![logo](https://aleen42.github.io/badges/src/google_plus.svg)](https://www.google.com.br/)
-
-## Documentação de cores
+## Color Doc
 
 | Cor               | Hexadecimal                                                |
 | ----------------- | ---------------------------------------------------------------- |
